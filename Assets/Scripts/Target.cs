@@ -11,6 +11,8 @@ public class Target : MonoBehaviour
     private float targetTorque = 10f;
     private float valuePosX = 4f;
     private float targetPosY = -5;
+    public float targetScore;
+    public GameManager gameManager;
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
@@ -18,6 +20,7 @@ public class Target : MonoBehaviour
         targetRb.AddForce(Vector3.up * RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPos();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -28,6 +31,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        gameManager.SetScore(targetScore);
     }
     private void OnTriggerEnter()
     {
