@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScore: 10
   gameManager: {fileID: 0}
+  explosionParticle: {fileID: 7303472089845130122, guid: 6cbc21f5e9162483993a2b84b14d5ac8, type: 3}
 --- !u!54 &9215005821883777656
 Rigidbody:
   m_ObjectHideFlags: 0

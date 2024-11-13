@@ -13,6 +13,7 @@ public class Target : MonoBehaviour
     private float targetPosY = -5;
     public float targetScore;
     public GameManager gameManager;
+    public ParticleSystem explosionParticle;
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
@@ -31,7 +32,13 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        PlayExplosionEffect();
         gameManager.SetScore(targetScore);
+    }
+    public void PlayExplosionEffect()
+    {
+        Instantiate(explosionParticle, transform.position,
+        explosionParticle.transform.rotation);
     }
     private void OnTriggerEnter()
     {
